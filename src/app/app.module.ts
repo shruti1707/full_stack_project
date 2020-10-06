@@ -25,6 +25,11 @@ import { AuthguardComponent } from './authguard/authguard.component';
 import { AuthguardService } from './authguard.service';
 import { UserserviceService } from './userservice.service';
 import { AdminauthguardService } from './adminauthguard.service';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { CategoryService } from './category.service';
+import { CreateproductService } from './createproduct.service';
+import { FormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,9 @@ import { AdminauthguardService } from './adminauthguard.service';
     ManageordersComponent,
     MyOrdersComponent,
     LoginpageComponent,
-    AuthguardComponent
+    AuthguardComponent,
+    ProductFormComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -48,6 +55,8 @@ import { AdminauthguardService } from './adminauthguard.service';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule,
+    FormsModule,
+    CustomFormsModule,
     RouterModule.forRoot([
 
       { path : '' , component : HomepageComponent },
@@ -61,6 +70,8 @@ import { AdminauthguardService } from './adminauthguard.service';
       { path : 'my-orders' , component : MyOrdersComponent , canActivate : [AuthguardService] },
 
       { path : 'admin/manageproducts' , component : ManageproductsComponent , canActivate : [AuthguardService, AdminauthguardService] },
+      { path : 'admin/manageproducts/new' , component : ProductFormComponent , canActivate : [AuthguardService, AdminauthguardService] },
+      { path : 'admin/manageproducts/:id' , component : ProductFormComponent , canActivate : [AuthguardService, AdminauthguardService] },
       { path : 'admin/manageorders' , component : ManageordersComponent , canActivate : [AuthguardService,  AdminauthguardService] },
      
     ])
@@ -70,7 +81,9 @@ import { AdminauthguardService } from './adminauthguard.service';
     AuthService,
     AuthguardService,
     UserserviceService,
-    AdminauthguardService
+    AdminauthguardService,
+    CategoryService,
+    CreateproductService
   ],
   bootstrap: [AppComponent]
 })

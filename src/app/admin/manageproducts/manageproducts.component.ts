@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CreateproductService } from 'src/app/createproduct.service';
 
 @Component({
   selector: 'app-manageproducts',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageproductsComponent implements OnInit {
 
-  constructor() { }
+  products$;
+
+  constructor(private cc : CreateproductService) {
+
+    this.products$= cc.get().snapshotChanges();
+
+   }
 
   ngOnInit(): void {
   }

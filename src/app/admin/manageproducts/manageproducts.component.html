@@ -1,1 +1,21 @@
-<p>manageproducts works!</p>
+<a routerLink="/admin/manageproducts/new" class="btn btn-primary">New Product</a>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products$ | async">
+            <td>{{p.payload.val().title}}</td>
+            <td>{{p.payload.val().price}}</td>
+            <td>
+                <a [routerLink]="['/admin/manageproducts' , p.key]">Edit</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
