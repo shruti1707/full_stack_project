@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CartComponent } from './cart/cart.component';
-import { CheckoutComponent } from './checkout/checkout.component';
+// import { CheckoutComponent } from './checkout/checkout.component';
 import { OrdersuccessComponent } from './ordersuccess/ordersuccess.component';
 import { ManageproductsComponent } from './admin/manageproducts/manageproducts.component';
 import { ManageordersComponent } from './admin/manageorders/manageorders.component';
@@ -30,6 +30,8 @@ import { CreateproductService } from './createproduct.service';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
 import { ShoppingCartService } from './shopping-cart.service';
+import { CheckOutComponent } from './check-out/check-out.component';
+import { OrderService } from './order.service';
 
 
 @NgModule({
@@ -38,14 +40,14 @@ import { ShoppingCartService } from './shopping-cart.service';
     NavbarComponent,
     HomepageComponent,
     CartComponent,
-    CheckoutComponent,
     OrdersuccessComponent,
     ManageproductsComponent,
     ManageordersComponent,
     MyOrdersComponent,
     LoginpageComponent,
     AuthguardComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    CheckOutComponent
     
   ],
   imports: [
@@ -64,8 +66,8 @@ import { ShoppingCartService } from './shopping-cart.service';
       { path : 'loginpage' , component : LoginpageComponent },
 
 
-      { path : 'checkout' , component : CheckoutComponent , canActivate : [AuthguardService] },
-      { path : 'ordersuccess' , component : OrdersuccessComponent , canActivate : [AuthguardService] },
+      { path : 'check-out' , component : CheckOutComponent , canActivate : [AuthguardService] },
+      { path : 'ordersuccess/:id' , component : OrdersuccessComponent , canActivate : [AuthguardService] },
       { path : 'my-orders' , component : MyOrdersComponent , canActivate : [AuthguardService] },
 
       { path : 'admin/manageproducts' , component : ManageproductsComponent , canActivate : [AuthguardService, AdminauthguardService] },
@@ -83,7 +85,9 @@ import { ShoppingCartService } from './shopping-cart.service';
     AdminauthguardService,
     CategoryService,
     CreateproductService,
-    ShoppingCartService
+    ShoppingCartService,
+    OrderService
+
   ],
   bootstrap: [AppComponent]
 })
