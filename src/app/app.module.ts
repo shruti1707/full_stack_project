@@ -30,6 +30,8 @@ import { CategoryService } from './category.service';
 import { CreateproductService } from './createproduct.service';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
+import { ShoppingCartService } from './shopping-cart.service';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +61,7 @@ import { CustomFormsModule } from 'ng2-validation';
     CustomFormsModule,
     RouterModule.forRoot([
 
-      { path : '' , component : HomepageComponent },
+      { path : '' , component : ProductsComponent },
       { path : 'products' , component : ProductsComponent },
       { path : 'cart' , component : CartComponent},
       { path : 'loginpage' , component : LoginpageComponent },
@@ -83,7 +85,8 @@ import { CustomFormsModule } from 'ng2-validation';
     UserserviceService,
     AdminauthguardService,
     CategoryService,
-    CreateproductService
+    CreateproductService,
+    ShoppingCartService
   ],
   bootstrap: [AppComponent]
 })

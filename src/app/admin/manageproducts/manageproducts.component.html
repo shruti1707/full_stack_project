@@ -2,10 +2,44 @@
 
 <p><a routerLink="/admin/manageproducts/new" class="btn btn-primary">New Product</a></p>
 
+<!-- <data-table
+    [items]="items"
+    [itemCount]="itemCount"
+    (reload)="reloadit($event)"
+>
+
+<data-table-column
+    [property]="title"
+    [header]="Title"
+    [sortable]="true"
+    [resizable]="true"
+></data-table-column>
+
+<data-table-column
+    [property]="price"
+    [header]="Price"
+    [sortable]="true"
+    [resizable]="true"
+>
+<ng-template #datatableset let-item="item">
+    {{item.price | currency : 'INR' : true }}
+</ng-template>
+</data-table-column>
+
+<data-table-column
+    [property]="key"
+>  
+<ng-template #datatableset let-item="item">
+    <a [routerLink]="['/admin/manageproducts' , p.key]">Edit</a>
+</ng-template>
+</data-table-column>
+
+</data-table> -->
 
 
 
-<table class="table">
+ 
+ <table class="table">
     <thead>
         <tr>
             <th>Title</th>

@@ -17,7 +17,7 @@ export class CreateproductService {
   }
 
   getid(productid) : any {
-    return this.db.object('/products/' + productid).valueChanges();
+    return this.db.object('/products/' + productid).snapshotChanges();
   }
 
   update(productid , product){

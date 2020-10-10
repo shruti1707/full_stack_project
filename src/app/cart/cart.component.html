@@ -1,3 +1,42 @@
-<p>cart works!</p>
+<h1>Shopping Cart</h1>
+<ng-container>
+    <p>
+        You have {{shoppingCartItemCount}} items in your shopping cart.  
+        <button *ngIf = "shoppingCartItemCount" (click) = "clearCart()" class="btn btn-danger btn-sm">Clear Shopping Cart</button>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let pId of cartKey">
+                <td>
+                    <div class = "thumbnail" [style.backgroundImage]="'url(' + cart$.payload.val().items[pId].product.imageUrl + ')'"></div>
+                </td>
+                <td>
+                    {{cart$.payload.val().items[pId].product.title}}
+                </td>
+                <td>
+                   {{cart$.payload.val().items[pId].quantity}}
+                </td>
+                <td>
+                    {{cart$.payload.val().items[pId].product.price * cart$.payload.val().items[pId].quantity}}
+                </td>
+            </tr>
+        </tbody>
+            <tfoot>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{totalPrice}}</td>
+            </tfoot>
+    </table>
+    <button *ngIf = "shoppingCartItemCount" class="btn btn-primary" routerLink = "/check-out">Check Out</button>
+</ng-container>
 
 
