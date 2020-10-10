@@ -10,7 +10,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrdersuccessComponent } from './ordersuccess/ordersuccess.component';
@@ -38,7 +37,6 @@ import { ShoppingCartService } from './shopping-cart.service';
     AppComponent,
     NavbarComponent,
     HomepageComponent,
-    ProductsComponent,
     CartComponent,
     CheckoutComponent,
     OrdersuccessComponent,
@@ -61,8 +59,7 @@ import { ShoppingCartService } from './shopping-cart.service';
     CustomFormsModule,
     RouterModule.forRoot([
 
-      { path : '' , component : ProductsComponent },
-      { path : 'products' , component : ProductsComponent },
+      { path : '' , component : HomepageComponent },
       { path : 'cart' , component : CartComponent},
       { path : 'loginpage' , component : LoginpageComponent },
 
